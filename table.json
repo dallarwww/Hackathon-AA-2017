@@ -1,0 +1,22 @@
+[
+    {
+        "path": "Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1",
+        "user": "User1",
+        "rate": "Rate1"
+    },
+    {
+        "path": "Path2",
+        "user": "User2",
+        "rate": "Rate2"
+    },
+    {
+        "path": "Path3",
+        "user": "User3",
+        "rate": "Rate3"
+    },
+    {
+        "path": "Path4",
+        "user": "User4",
+        "rate": "Rate4"
+    }
+]

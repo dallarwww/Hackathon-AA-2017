@@ -1,0 +1,22 @@
+.chart-frame {
+    width: 100%;
+    height: 100%;
+}
+.row {
+    height: 50%;
+}
+body, html {
+    height: 100%;
+}
+.container-fluid {
+    height: 90%;
+}
+iframe {
+    border: none;
+}
+
+@media (min-width: 1700px) {
+    .modal-lg {
+        max-width: 1600px;
+    }
+}

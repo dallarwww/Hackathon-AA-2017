@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        html,
+        body {
+            height: 95%;
+        }
+        #chart {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="chart"></svg>
+    <script src="https://cdn.bootcss.com/d3/4.10.2/d3.min.js"></script>
+    <script src="https://cdn.bootcss.com/d3-sankey/0.7.1/d3-sankey.min.js"></script>
+    <script>
+        var svg = d3.select("svg"),
+            svgdom = document.getElementById("chart");
+        var width = svgdom.clientWidth,
+            height = svgdom.clientHeight;
+
+        var formatNumber = d3.format(",.0f"),
+            format = function (d) { return formatNumber(d); },
+            color = d3.scaleOrdinal(d3.schemeCategory20);
+
+        var sankey = d3.sankey()
+            .nodeWidth(15)
+            .nodePadding(10)
+            .size([width, height-6]);
+
+        var link = svg.append("g")
+            .attr("class", "links")
+            .attr("fill", "none")
+            .attr("stroke", "#000") // Link color
+            .attr("stroke-opacity", 0.2)
+            .selectAll("path");
+
+        var node = svg.append("g")
+            .attr("class", "nodes")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 10)
+            .selectAll("g");
+
+        d3.json(window.location.hash.substring(1), function (error, data) {
+            if (error) throw error;
+
+            sankey(data);
+
+            link = link
+                .data(data.links)
+                .enter().append("path")
+                .attr("d", d3.sankeyLinkHorizontal())
+                .attr("stroke-width", function (d) { return Math.max(1, d.width); });
+
+            link.append("title")
+                .text(function (d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+
+            node = node
+                .data(data.nodes)
+                .enter().append("g");
+
+            node.append("rect")
+                .attr("x", function (d) { return d.x0; })
+                .attr("y", function (d) { return d.y0; })
+                .attr("height", function (d) { return d.y1 - d.y0; })
+                .attr("width", function (d) { return d.x1 - d.x0; })
+                .attr("fill", function(d) { return color(d.name.replace(/ .*/, "")); })
+                .attr("stroke", "#000");
+
+            node.append("text")
+                .attr("x", function (d) { return d.x0 - 6; })
+                .attr("y", function (d) { return (d.y1 + d.y0) / 2; })
+                .attr("dy", "0.35em")
+                .attr("text-anchor", "end")
+                .text(function (d) { return d.name; })
+                .filter(function (d) { return d.x0 < width / 2; })
+                .attr("x", function (d) { return d.x1 + 6; })
+                .attr("text-anchor", "start");
+
+            node.append("title")
+                .text(function (d) { return d.name + "\n" + format(d.value); });
+        });
+    </script>
+</body>
+
+</html>
