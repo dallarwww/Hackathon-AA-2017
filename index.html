@@ -18,23 +18,17 @@
         </nav>
         <div class="row">
             <div class="col">
-                Paid user
-                <!--<iframe src="show.html#chart_paid.json" class="chart-frame"></iframe>-->
                 <iframe src="sunburst_show.html#chart_paid.json" class="chart-frame"></iframe>
             </div>
             <div class="col">
-                Free user
-                <iframe src="show.html#chart_free.json" class="chart-frame"></iframe>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                Old user
-                <iframe src="show.html#chart_old.json" class="chart-frame"></iframe>
-            </div>
-            <div class="col">
-                New user
-                <iframe src="show.html#chart_new.json" class="chart-frame"></iframe>
+                <div class="row half-row">
+                    Paid user
+                    <iframe src="show.html#chart_paid.json" class="chart-frame"></iframe>
+                </div>
+                <div class="row half-row">
+                    Free user
+                    <iframe src="show.html#chart_free.json" class="chart-frame"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -71,11 +65,11 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script>
         "use strict";
-        fetch('table.json').then(function(response) {
+        fetch('table.json').then(function (response) {
             return response.json();
-        }).then(function(json) {
+        }).then(function (json) {
             var table = document.getElementById("report-table");
-            json.forEach(function(rowdata){
+            json.forEach(function (rowdata) {
                 var newRow = table.insertRow();
                 newRow.insertCell().appendChild(document.createTextNode(rowdata.path))
                 newRow.insertCell().appendChild(document.createTextNode(rowdata.user))

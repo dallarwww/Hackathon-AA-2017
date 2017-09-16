@@ -3,6 +3,9 @@
     height: 100%;
 }
 .row {
+    height: 100%;
+}
+.half-row {
     height: 50%;
 }
 body, html {
