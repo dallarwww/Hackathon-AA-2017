@@ -1,22 +1,37 @@
 [
     {
-        "path": "Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1Path1",
-        "user": "User1",
-        "rate": "Rate1"
+        "path": "market-size -> time-line -> daily-rank -> usage",
+        "user": "Paid",
+        "rate": "10%"
     },
     {
-        "path": "Path2",
-        "user": "User2",
-        "rate": "Rate2"
+        "path": "advertisers -> daily-rank -> date -> device",
+        "user": "Paid",
+        "rate": "25%"
     },
     {
-        "path": "Path3",
-        "user": "User3",
-        "rate": "Rate3"
+        "path": "chart-matrix -> review -> compare -> app-detail",
+        "user": "Old",
+        "rate": "30%"
     },
     {
-        "path": "Path4",
-        "user": "User4",
-        "rate": "Rate4"
+        "path": "index -> country -> featured -> ratings",
+        "user": "New",
+        "rate": "30%"
+    },
+    {
+        "path": "top-publishers -> rank-history -> download&revenue -> review",
+        "user": "Free",
+        "rate": "20%"
+    },
+    {
+        "path": "live-search -> daily-rank -> time-line -> advertising",
+        "user": "Free",
+        "rate": "20%"
+    },
+    {
+        "path": "top-charts -> rank-history -> app-detail -> ratings",
+        "user": "Free",
+        "rate": "20%"
     }
 ]
