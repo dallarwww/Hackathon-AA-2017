@@ -11,7 +11,7 @@ from os.path import abspath
 from backend import action_list
 
 
-LINK_BOLD = 10
+LINK_BOLD = 20
 
 
 def gen_path(action_list):
